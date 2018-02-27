@@ -383,3 +383,32 @@ function test_subframe_header_policy(
     });
   }, test_name);
 }
+
+// This function tests that frame policy allows a given feature correctly. A
+// feature is allowed in a frame either through inherited policy or specified
+// by iframe allow attribute.
+// Arguments:
+//     feature: feature name.
+//     src: the URL to load in the frame.
+//     test_expect: boolean value of either the feature should be allowed.
+//     allow: the allow attribute (container policy) of the iframe.
+//     allowfullscreen: boolean value of allowfullscreen attribute.
+function test_frame_policy(
+    feature, src, test_expect, allow, allowfullscreen) {
+  let frame = document.createElement('iframe');
+  document.body.appendChild(frame);
+  var frame_policy = frame.policy;
+  if (typeof allow !== 'undefined') {
+    frame.setAttribute('allow', allow);
+  }
+  if (typeof allowfullscreen !== 'undefined') {
+    frame.setAttribute('allowfullscreen', allowfullscreen);
+    // Dynamically update allow attribute update frame.policy
+  }
+  frame.src = src;
+  if (test_expect) {
+    assert_true(frame_policy.allowedFeatures().includes(feature));
+  } else {
+    assert_false(frame_policy.allowedFeatures().includes(feature));
+  }
+}
