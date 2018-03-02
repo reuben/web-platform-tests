@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <title>CSS3 Text, linebreaks: 0F3B TIBETAN MARK GUG RTAGS GYAS</title>
 <link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<script src="../support/match-width.js"></script>
 <meta name='flags' content=''>
 <style type='text/css'>
 @font-face {
@@ -11,7 +12,7 @@
 	src: url('support/mplus-1p-regular.woff') format('woff');
 	/* filesize: 803K */
 	}
-.test, .ref { font-size: 30px; font-family: mplus-1p-regular, sans-serif; width: 95px; padding: 0; border: 1px solid orange; line-height: 1em; }
+.test, .ref, #width { font-size: 30px; font-family: mplus-1p-regular, sans-serif; padding: 0; border: 1px solid orange; line-height: 1em; }
 .test, .ref { width: 115px; }
 </style>
 </head>
@@ -27,8 +28,8 @@
 
 <div class='ref'>中中<br />中&#x0F3B;文</div>
 
-
-
+<span id='width'>中中中</span>
+<script>matchWidth('#width', ['.test', '.ref']);</script>
 
 </body>
 </html>
