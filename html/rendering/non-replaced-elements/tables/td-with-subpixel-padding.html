@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<link rel="match" href="td-with-subpixel-padding-ref.html">
+<style>
+div {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: blue;
+}
+</style>
+Passes if each row has two blue squares.
+<table>
+  <tr>
+    <td style="padding: 0 0.8px"><div></div> <div></div></td>
+    <td style="padding: 0 0.8px; width: 30px"></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td style="padding: 0 1px"><div></div> <div></div></td>
+    <td style="padding: 0 1px; width: 30px"></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td style="padding: 0 1.3px"><div></div> <div></div></td>
+    <td style="padding: 0 1.3px; width: 30px"></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td style="padding: 0 1.5px"><div></div> <div></div></td>
+    <td style="padding: 0 1.5px; width: 30px"></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td style="padding: 0 1.7px"><div></div> <div></div></td>
+    <td style="padding: 0 1.7px; width: 30px"></td>
+  </tr>
+</table>
